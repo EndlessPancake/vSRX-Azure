@@ -21,7 +21,7 @@
       "value": "192.168.20.20"
     },
     "vsrx-addr-ge-0-0-2": {
-    "value": "192.168.20.22"
+      "value": "192.168.20.22"
     },
     "vsrx-username": {
       "value": "azureuser"
