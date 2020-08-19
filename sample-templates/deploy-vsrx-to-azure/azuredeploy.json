@@ -380,6 +380,30 @@
              "enableIPForwarding": true
            }
         },
+	{
+           "apiVersion": "2016-03-30",
+           "type": "Microsoft.Network/networkInterfaces",
+           "name": "[variables('vsrxVM').trust2NicName]",
+           "location": "[resourceGroup().location]",
+           "dependsOn": [
+             "[concat('Microsoft.Network/virtualNetworks/', variables('vnet-name'))]"
+           ],
+           "properties": {
+             "ipConfigurations": [
+               {
+                 "name": "ipconfig1",
+                 "properties": {
+                   "privateIPAllocationMethod": "Static",
+                   "privateIPAddress": "[variables('vsrxVM').trust2PrivateIP]",
+                   "subnet": {
+                     "id": "[variables('vnet-trust-subnet-id')]"
+                   }
+                 }
+               }
+             ],
+             "enableIPForwarding": true
+           }
+        },
         {
           "apiVersion": "2016-03-30",
           "name": "[variables('vsrxVM').vmName]",
